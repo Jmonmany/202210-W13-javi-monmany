@@ -1,14 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.scss';
+import { App } from './core/components/app/app';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { CharacterContextProvider } from './core/context/characters.provider';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 root.render(
     <React.StrictMode>
-        <'App' />
+            <CharacterContextProvider>
+                <Router>
+                    <App />
+                </Router>
+            </CharacterContextProvider>
     </React.StrictMode>
 );
 
