@@ -33,9 +33,6 @@ describe('Given the reducer', () => {
             const updateCharacter: Fighter = {
                 ...jaime,
                 age: 50,
-                report: function (): string {
-                    throw new Error('Function not implemented.');
-                },
                 death: function (): void {
                     throw new Error('Function not implemented.');
                 }
