@@ -1,11 +1,12 @@
-import { Repository } from "../types/repo";
+import { Repository } from '../types/repo';
 import { CharacterClass } from '../../features/models/character.model';
 
 const invalidIdError = new Error('Invalid ID');
 
 export class CharacterRepo implements Repository<CharacterClass> {
-    constructor(private url = 'https://apiserver-yfwk.onrender.com/robots/') {
-    }
+    constructor(
+        private url = 'https://apiserver-yfwk.onrender.com/characters/'
+    ) {}
 
     async load(): Promise<CharacterClass[]> {
         const resp = await fetch(this.url);

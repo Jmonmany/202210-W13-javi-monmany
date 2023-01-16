@@ -6,6 +6,7 @@ export function App() {
         { path: '/home', label: 'Home' },
         { path: '/characters', label: 'Characters' }
     ];
+    
     return (
         <>
             <Layout items={items}>

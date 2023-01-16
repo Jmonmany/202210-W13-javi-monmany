@@ -13,8 +13,8 @@ import {
 import { CharacterRepo } from '../core/services/repository';
 import { useCharacter } from './use.characters';
 import { CharacterClass } from '../features/models/character.model';
-
-jest.mock('../services/repository/places.repo');
+import * as debug from '../tools/debug';
+jest.mock('../core/services/repository');
 
 CharacterRepo.prototype.load = jest.fn();
 CharacterRepo.prototype.create = jest.fn();
@@ -39,7 +39,9 @@ describe(`Given useCharacters (custom hook)
             return (
                 <>
                     <button onClick={handleLoad}>Load</button>
-                    <button onClick={() => handleAdd(mockAddCharacter)}>Add</button>
+                    <button onClick={() => handleAdd(mockAddCharacter)}>
+                        Add
+                    </button>
                     <button onClick={() => handleUpdate(mockUpdateCharacter)}>
                         Update
                     </button>
@@ -52,9 +54,13 @@ describe(`Given useCharacters (custom hook)
                         <div>
                             <p>Loaded</p>
                             <ul>
-                                {getCharacters().map((character: CharacterClass) => (
-                                    <li key={character.id}>{character.name}</li>
-                                ))}
+                                {getCharacters().map(
+                                    (character: CharacterClass) => (
+                                        <li key={character.id}>
+                                            {character.name}
+                                        </li>
+                                    )
+                                )}
                             </ul>
                         </div>
                     )}
@@ -63,6 +69,7 @@ describe(`Given useCharacters (custom hook)
         };
         render(<TestComponent />);
         buttons = screen.getAllByRole('button');
+        spyConsole = jest.spyOn(debug, 'consoleDebug');
     });
     describe(`When the repo is working OK`, () => {
         beforeEach(mockValidRepoResponse);
@@ -77,7 +84,6 @@ describe(`Given useCharacters (custom hook)
             expect(
                 await screen.findByText(mockCharacter2.name)
             ).toBeInTheDocument();
-            expect(spyConsole).toBeCalledWith('LOAD Places');
         });
 
         test('Then its function handleAdd should be used', async () => {

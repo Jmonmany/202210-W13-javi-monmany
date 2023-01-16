@@ -3,7 +3,8 @@ import { CharacterClass } from '../features/models/character.model';
 import { CharacterAction } from './action.creator';
 import * as ac from './action.creator';
 import { characterReducer } from './reducer';
-import { CHARACTER3 } from '../features/data/mock.character';
+import { jaime } from '../features/models/characters';
+import { Fighter } from '../features/models/Fighter';
 
 describe('Given the reducer', () => {
     let state: Array<CharacterClass>;
@@ -29,11 +30,20 @@ describe('Given the reducer', () => {
 
     describe('When the action type is "characters@update"', () => {
         test('Then it should return the state with th data updated', () => {
-            const updatecharacter= CHARACTER3
-            state = [mockCharacter1, mockCharacter2];
-            action = ac.characterUpdateCreator(updatecharacter);
+            const updateCharacter: Fighter = {
+                ...jaime,
+                age: 50,
+                report: function (): string {
+                    throw new Error('Function not implemented.');
+                },
+                death: function (): void {
+                    throw new Error('Function not implemented.');
+                }
+            }
+            state = [jaime, mockCharacter2];
+            action = ac.characterUpdateCreator(updateCharacter);
             const result = characterReducer(state, action);
-            expect(result).toEqual([updatecharacter, mockCharacter2]);
+            expect(result).toEqual([updateCharacter, mockCharacter2]);
         });
     });
 

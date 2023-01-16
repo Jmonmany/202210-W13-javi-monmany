@@ -12,11 +12,8 @@ describe('Given Header component', () => {
                     </Header>
                 </Router>
             );
-            // Seleccionando por texto
-            // const element = screen.getAllByText(/Learning Components/i);
-            // La mejor práctica sería hacerlo por rol
             const elementHeader = screen.getByRole('heading', {
-                name: 'Learning Components',
+                name: 'Flux adaptation',
             });
             expect(elementHeader).toBeInTheDocument();
         });
