@@ -10,7 +10,7 @@ describe('Given RobotsPage component', () => {
                 </Router>
             );
             const elementHeader = screen.getByRole('heading', {
-                name: 'Roboter Generator',
+                name: 'Character List',
             });
             expect(elementHeader).toBeInTheDocument();
         });

@@ -7,9 +7,15 @@ describe('Given "CHARACTER" data model', () => {
         expect(mockCharacter).toBeInstanceOf(CharacterClass);
         expect(mockCharacter).toHaveProperty('name', CHARACTER.name);
         expect(mockCharacter).toHaveProperty('imageUrl', CHARACTER.imageUrl);
-        expect(mockCharacter).toHaveProperty('speed', CHARACTER.message);
-        expect(mockCharacter).toHaveProperty('endurance', CHARACTER.age);
-        expect(mockCharacter).toHaveProperty('creationDate', CHARACTER.family);
-        expect(mockCharacter).toHaveProperty('creationUser', CHARACTER.state);
+        expect(mockCharacter).toHaveProperty('message', CHARACTER.message);
+        expect(mockCharacter).toHaveProperty('age', CHARACTER.age);
+        expect(mockCharacter).toHaveProperty('family', CHARACTER.family);
+        expect(mockCharacter).toHaveProperty('state', CHARACTER.state);
+        expect(mockCharacter).toHaveProperty('death', CHARACTER.death);
+    });
+    test('Then it call death function', () => {
+        const mockCharacter = CHARACTER;
+        mockCharacter.death();
+        expect(mockCharacter.state).toBe(false);
     });
 });

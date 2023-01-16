@@ -8,7 +8,6 @@ export type CharacterModel = {
 };
 
 interface Person {
-    report: () => void;
     death: () => void;
 }
 
@@ -29,9 +28,6 @@ export class CharacterClass implements CharacterModel, Person {
     ) {
         this.id = CharacterClass.generateId();
         this.state = true;
-    }
-    report() {
-        return this.message;
     }
     death() {
         this.state = false;

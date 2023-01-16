@@ -3,6 +3,7 @@ import { CharacterClass } from '../features/models/character.model';
 import { CharacterRepo } from '../core/services/repository';
 import { characterReducer } from '../reducer/reducer';
 import * as ac from '../reducer/action.creator';
+import { consoleDebug } from '../tools/debug';
 
 export type useCharacterType = {
     getStatus: () => Status;
@@ -69,7 +70,7 @@ export function useCharacter(): useCharacterType {
     };
 
     const handleError = (error: Error) => {
-        return 'Error';
+        consoleDebug(error.message);
     };
 
     return {

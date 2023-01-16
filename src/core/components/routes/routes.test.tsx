@@ -10,11 +10,11 @@ const testLazyRoute = (index: number) => {
     expect(lazyElement).toBeInTheDocument();
 };
 
-jest.mock('../../../features/home/pages/home.page', () => {
+jest.mock('../../../features/pages/home/home', () => {
     return () => <p>{mockPageTitles[0]}</p>;
 });
 
-jest.mock('../../../features/pages/characters/characters.tsx', () => {
+jest.mock('../../../features/pages/characters/characters', () => {
     return () => <p>{mockPageTitles[1]}</p>;
 });
 

@@ -1,9 +1,9 @@
-import { Advisor } from './Advisor.js';
-import { Fighter } from './Fighter.js';
-import { King } from './King.js';
-import { Squire } from './Squire.js';
+import { Advisor } from './Advisor';
+import { Fighter } from './Fighter';
+import { King } from './King';
+import { Squire } from './Squire';
 
-const joffrey = new King(
+export const joffrey = new King(
     'Joffrey',
     'Baratheon',
     18,
@@ -11,7 +11,7 @@ const joffrey = new King(
     './assets/img/joffrey.jpg',
     1
 );
-const jaime = new Fighter(
+export const jaime = new Fighter(
     'Jaime',
     'Lannister',
     45,
@@ -20,7 +20,7 @@ const jaime = new Fighter(
     'Sword',
     5
 );
-const daenerys = new Fighter(
+export const daenerys = new Fighter(
     'Daenerys',
     'Targaryen',
     25,
@@ -29,7 +29,7 @@ const daenerys = new Fighter(
     'Dragon',
     10
 );
-const tyrion = new Advisor(
+export const tyrion = new Advisor(
     'Tyrion',
     'Lannister',
     35,
@@ -37,7 +37,7 @@ const tyrion = new Advisor(
     './assets/img/tyrion.jpg',
     daenerys
 );
-const bronn = new Squire(
+export const bronn = new Squire(
     'Bronn',
     '',
     40,
@@ -47,4 +47,4 @@ const bronn = new Squire(
     8
 );
 
-export const characters = [joffrey, jaime, daenerys, tyrion, bronn];
+
