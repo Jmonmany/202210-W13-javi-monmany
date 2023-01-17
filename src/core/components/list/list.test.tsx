@@ -55,10 +55,6 @@ describe('Given "List" component', () => {
             await waitFor(() => {
                 expect(handleLoad).toHaveBeenCalled();
             });
-            // const elementItem = await screen.findByText(/john/i);
-            // await waitFor(() => {
-            //     expect(elementItem).toBeInTheDocument();
-            // });
         });
     });
 });
