@@ -8,10 +8,10 @@ import {
 import userEvent from '@testing-library/user-event';
 
 describe('Given "Advisor" component', () => {
-    const handleUpdate = jest.fn();
+    const handleShow = jest.fn();
     const handleDelete = jest.fn();
     const mockContext = {
-        handleUpdate,
+        handleShow,
         handleDelete,
     } as unknown as CharacterContextStructure;
     const mockAdvisor = tyrion;
@@ -35,7 +35,7 @@ describe('Given "Advisor" component', () => {
             expect(elements[3]).toBeInTheDocument();
             expect(elements[4]).toBeInTheDocument();
             userEvent.click(elements[3]);
-            expect(handleUpdate).toHaveBeenCalledTimes(1);
+            expect(handleShow).toHaveBeenCalledTimes(1);
             userEvent.click(elements[4]);
             expect(handleDelete).toHaveBeenCalledTimes(1);
             expect(mockAdvisor.state).toBe(false);
