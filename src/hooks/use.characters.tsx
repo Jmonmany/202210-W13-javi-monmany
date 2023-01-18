@@ -6,12 +6,14 @@ import * as ac from '../reducer/action.creator';
 import { consoleDebug } from '../tools/debug';
 
 export type useCharacterType = {
+    show: Array<CharacterClass>;
     getStatus: () => Status;
     getCharacters: () => Array<CharacterClass>;
     handleLoad: () => Promise<void>;
     handleAdd: (character: CharacterClass) => Promise<void>;
     handleUpdate: (characterPayload: Partial<CharacterClass>) => Promise<void>;
     handleDelete: (id: CharacterClass['id']) => Promise<void>;
+    handleShow: (character: CharacterClass) => void;
 };
 
 type Status = 'Starting' | 'Loading' | 'Loaded';
@@ -21,11 +23,18 @@ export function useCharacter(): useCharacterType {
 
     const initialState: Array<CharacterClass> = [];
     const initialStatus = 'Starting' as Status;
-
+    const initialShow: Array<CharacterClass> = [];
     const [characters, dispatch] = useReducer(characterReducer, initialState);
 
     const [status, setStatus] = useState(initialStatus);
-
+    const [show, setShow] = useState(initialShow);
+    const handleShow = (character: CharacterClass) => {
+        setShow([character]);
+        setTimeout(() => {
+            handleClose();
+        }, 1500);
+    };
+    const handleClose = () => setShow([]);
     const getCharacters = () => characters;
     const getStatus = () => status;
 
@@ -74,11 +83,13 @@ export function useCharacter(): useCharacterType {
     };
 
     return {
+        show,
         getStatus,
         getCharacters,
         handleLoad,
         handleAdd,
         handleUpdate,
         handleDelete,
+        handleShow,
     };
 }

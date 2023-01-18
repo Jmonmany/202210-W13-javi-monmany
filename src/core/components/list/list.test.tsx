@@ -6,13 +6,17 @@ import {
     CharacterContextStructure,
 } from '../../../core/context/characters.context';
 import { CHARACTER } from '../../../features/data/mock.character';
-
-const mockCharacter = [CHARACTER];
-
+import {
+    bronn,
+    daenerys,
+    jaime,
+    joffrey,
+    tyrion,
+} from '../../../features/models/characters';
+const mockCharacters = [CHARACTER, jaime, tyrion, bronn, joffrey, daenerys];
 describe('Given "List" component', () => {
     const handleLoad = jest.fn();
     let mockContext: CharacterContextStructure;
-
     describe('When it is initially instantiated without data', () => {
         beforeEach(async () => {
             mockContext = {
@@ -34,11 +38,10 @@ describe('Given "List" component', () => {
             expect(elementTitle).toBeInTheDocument();
         });
     });
-
     describe('When it load the data from getCharacter', () => {
         beforeEach(async () => {
             mockContext = {
-                characters: mockCharacter,
+                characters: mockCharacters,
                 handleLoad,
             } as unknown as CharacterContextStructure;
             await act(async () => {
@@ -50,8 +53,29 @@ describe('Given "List" component', () => {
             });
         });
         test(`Then it should be render the data`, async () => {
-            const elementList = await screen.findByRole('list'); // <ul />
-            expect(elementList).toBeInTheDocument();
+            const error = screen.getByText('Error');
+            const jaimeHeading = screen.getByRole('heading', {
+                name: jaime.name + ' ' + jaime.family,
+            });
+            const tyrionHeading = screen.getByRole('heading', {
+                name: tyrion.name + ' ' + tyrion.family,
+            });
+            const bronnHeading = screen.getByRole('heading', {
+                name: bronn.name,
+            });
+            const joffreyHeading = screen.getByRole('heading', {
+                name: joffrey.name + ' ' + joffrey.family,
+            });
+            const daenerysHeading = screen.getByRole('heading', {
+                name: daenerys.name + ' ' + daenerys.family,
+            });
+            expect(error).toBeInTheDocument();
+            expect(jaimeHeading).toBeInTheDocument();
+            expect(tyrionHeading).toBeInTheDocument();
+            expect(bronnHeading).toBeInTheDocument();
+            expect(joffreyHeading).toBeInTheDocument();
+            expect(daenerysHeading).toBeInTheDocument();
+
             await waitFor(() => {
                 expect(handleLoad).toHaveBeenCalled();
             });

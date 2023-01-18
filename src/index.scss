@@ -48,9 +48,6 @@ body {
     flex: 1 1 auto;
     padding: 1rem 1rem;
 }
-.character__info {
-
-}
 .list-unstyled {
     list-style: none;
 }
@@ -95,29 +92,25 @@ body {
     background-color: red;
 }
 .comunications {
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 1);
     padding: 0 100px;
     display: flex;
     align-items: center;
     transition: all 0.3s;
-    right: 100vw;
-    left: -100vw;
-}
-.comunications.on {
-    right: 0;
-    left: 0;
-    background-color: rgba(255, 255, 255, 1);
-}
-.comunications__picture {
-    width: 70px;
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
+    &__picture {
+        width: 10rem;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    &__text {
+        font-size: 8rem;
+    }
 }
 .emoji {
     font-style: normal;

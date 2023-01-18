@@ -5,7 +5,7 @@ import { CharacterClass, CharacterModel } from '../../features/models/character.
 
 export type CharacterContextStructure = Omit<
     useCharacterType,
-    'getStatus' | 'getCharacters'
+    'getStatus' | 'getCharacters' 
 > & {
     characters: Array<CharacterClass>;
 };
@@ -16,6 +16,8 @@ export const initialContext: CharacterContextStructure = {
     handleAdd: async (Character: CharacterModel) => {},
     handleDelete: async (id: string) => {},
     handleUpdate: async (CharacterPayload: Partial<CharacterClass>) => {},
+    handleShow: () => {},
+    show: [],
 };
 
 export const CharacterContext = createContext(initialContext);

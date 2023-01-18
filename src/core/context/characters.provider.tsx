@@ -3,7 +3,7 @@ import { CharacterContext } from './characters.context';
 import { useCharacter } from '../../hooks/use.characters';
 
 export function CharacterContextProvider({ children }: { children: JSX.Element }) {
-    const { getCharacters, handleLoad, handleAdd, handleDelete, handleUpdate } =
+    const {show ,getCharacters, handleLoad, handleAdd, handleDelete, handleUpdate, handleShow} =
         useCharacter();
 
     const context = useMemo(
@@ -13,8 +13,18 @@ export function CharacterContextProvider({ children }: { children: JSX.Element }
             handleAdd,
             handleDelete,
             handleUpdate,
+            handleShow,
+            show
         }),
-        [getCharacters, handleAdd, handleDelete, handleLoad, handleUpdate]
+        [
+            getCharacters,
+            handleAdd,
+            handleDelete,
+            handleLoad,
+            handleUpdate,
+            handleShow,
+            show
+        ]
     );
 
     return (

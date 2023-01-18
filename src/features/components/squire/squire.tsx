@@ -5,11 +5,11 @@ import { jaime } from '../../models/characters';
 import { Squire } from '../../models/Squire';
 // import from '../../../../public/img/bronn.jpg'
 export function SquireComponent({ item }: { item: CharacterClass }) {
-    const { handleUpdate, handleDelete } = useContext(CharacterContext);
+    const { handleDelete, handleShow } = useContext(CharacterContext);
 
-    const handleChange = () => {
-        handleUpdate(item);
-    };
+    const handleSend = () => {
+        handleShow(item)
+    }
 
     const handleClick = () => {
         item.state = !item.state;
@@ -47,7 +47,7 @@ export function SquireComponent({ item }: { item: CharacterClass }) {
                             <div className="character__actions">
                                 <button
                                     className="character__action btn"
-                                    onClick={handleChange}
+                                    onClick={handleSend}
                                 >
                                     Speak
                                 </button>

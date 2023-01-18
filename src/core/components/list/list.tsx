@@ -11,6 +11,7 @@ export function List() {
     useEffect(() => {
         handleLoad();
     }, [handleLoad]);
+
     return (
         <>
             <h3>Character List</h3>

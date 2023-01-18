@@ -4,10 +4,10 @@ import { useContext } from 'react';
 import { CharacterContext } from '../../../core/context/characters.context';
 
 export function AdvisorComponent({ item }: { item: CharacterClass }) {
-    const { handleUpdate, handleDelete } = useContext(CharacterContext);
+    const { handleDelete, handleShow } = useContext(CharacterContext);
 
-    const handleChange = () => {
-        handleUpdate(item);
+    const handleSend = () => {
+        handleShow(item);
     };
 
     const handleClick = () => {
@@ -45,7 +45,7 @@ export function AdvisorComponent({ item }: { item: CharacterClass }) {
                             <div className="character__actions">
                                 <button
                                     className="character__action btn"
-                                    onClick={handleChange}
+                                    onClick={handleSend}
                                 >
                                     Speak
                                 </button>
