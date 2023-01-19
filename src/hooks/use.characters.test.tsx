@@ -20,8 +20,6 @@ CharacterRepo.prototype.load = jest.fn();
 CharacterRepo.prototype.create = jest.fn();
 CharacterRepo.prototype.update = jest.fn();
 CharacterRepo.prototype.delete = jest.fn();
-// const handleShow = jest.fn();
-// const handleClose = jest.fn();
 describe(`Given useCharacters (custom hook)
             render with a virtual component`, () => {
     let TestComponent: () => JSX.Element;
@@ -30,14 +28,12 @@ describe(`Given useCharacters (custom hook)
     beforeEach(() => {
         TestComponent = () => {
             const {
-                // show,
                 getStatus,
                 getCharacters,
                 handleLoad,
                 handleAdd,
                 handleUpdate,
                 handleDelete,
-                // handleShow,
             } = useCharacter();
             return (
                 <>
@@ -51,9 +47,6 @@ describe(`Given useCharacters (custom hook)
                     <button onClick={() => handleDelete(mockCharacter2.id)}>
                         Delete
                     </button>
-                    {/* <button onClick={() => handleShow(mockCharacter2)}>
-                        Show
-                    </button> */}
                     {getStatus() !== 'Loaded' ? (
                         <p>Loading</p>
                     ) : (
@@ -123,13 +116,6 @@ describe(`Given useCharacters (custom hook)
                 async () => await screen.findByText(mockCharacter1.name)
             ).rejects.toThrowError();
         });
-        // test('Then its function handleShow should be used', async () => {
-        //     userEvent.click(buttons[0]);
-        //     userEvent.click(buttons[4]);
-        //     expect(handleClose).toHaveBeenCalled();
-        //     expect(handleShow).toHaveBeenCalled();
-        //     expect(show).toHaveBeenCalled();
-        // });
     });
     describe(`When the repo is NOT working OK`, () => {
         beforeEach(mockNoValidRepoResponse);
