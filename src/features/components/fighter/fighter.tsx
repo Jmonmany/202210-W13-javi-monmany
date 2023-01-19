@@ -59,7 +59,7 @@ export function FighterComponent({ item }: { item: CharacterClass }) {
                             </div>
                         </div>
                     </div>
-                    <i className="emoji">🗡</i>
+                    <i className="material-symbols-outlined emoji">swords</i>
                 </div>
             </li>
         </>

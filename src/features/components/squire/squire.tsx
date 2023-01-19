@@ -60,7 +60,7 @@ export function SquireComponent({ item }: { item: CharacterClass }) {
                             </div>
                         </div>
                     </div>
-                    <i className="emoji">🛡</i>
+                    <i className="material-symbols-outlined emoji">shield_moon</i>
                 </div>
             </li>
         </>
