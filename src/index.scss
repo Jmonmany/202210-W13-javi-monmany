@@ -17,7 +17,7 @@ nav {
     ul {
         display: flex;
         justify-content: space-evenly;
-        @include unstyledList()
+        @include unstyledList();
     }
     a {
         padding: 0.5rem;
@@ -25,10 +25,10 @@ nav {
         text-decoration: none;
     }
     a:hover {
-       @include menuLinkHover()
+        @include menuLinkHover();
     }
 }
-.home{
+.home {
     margin-top: 3rem;
     height: 50vh;
     text-align: center;
@@ -64,15 +64,15 @@ nav {
     min-width: 0;
     word-wrap: break-word;
     background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
+    border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
 }
-.card-body{
+.card-body {
     flex: 1 1 auto;
     padding: 1rem 1rem;
 }
 .list-unstyled {
-    @include unstyledList()
+    @include unstyledList();
 }
 .character__overlay {
     border-radius: 0.25rem;
@@ -112,10 +112,10 @@ nav {
     width: 80%;
 }
 .btn {
-    @include btnTheme()
+    @include btnTheme();
 }
-.btn:hover{
-    @include btnHover()
+.btn:hover {
+    @include btnHover();
 }
 .comunications {
     position: absolute;
@@ -159,28 +159,3 @@ footer {
     justify-content: center;
     align-items: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
