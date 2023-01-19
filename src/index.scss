@@ -7,7 +7,32 @@ body {
     background-color: #b9540c;
     overflow: hidden;
 }
-
+header {
+    text-align: center;
+}
+nav {
+    background-color: $color-lazy-white;
+    padding: 0.25rem;
+    border-radius: 1rem;
+    ul {
+        display: flex;
+        justify-content: space-evenly;
+        @include unstyledList()
+    }
+    a {
+        padding: 0.5rem;
+        color: black;
+        text-decoration: none;
+    }
+    a:hover {
+       @include menuLinkHover()
+    }
+}
+.home{
+    margin-top: 3rem;
+    height: 50vh;
+    text-align: center;
+}
 .characters-list {
     display: flex;
     flex-wrap: nowrap;
@@ -16,9 +41,7 @@ body {
     padding: 0;
 }
 .character {
-    flex: 1 0 0%;
     width: 20%;
-    flex-basis: auto;
     flex-grow: 0;
     margin-inline: 0.25rem;
 }
@@ -49,7 +72,7 @@ body {
     padding: 1rem 1rem;
 }
 .list-unstyled {
-    list-style: none;
+    @include unstyledList()
 }
 .character__overlay {
     border-radius: 0.25rem;
@@ -89,7 +112,10 @@ body {
     width: 80%;
 }
 .btn {
-    background-color: red;
+    @include btnTheme()
+}
+.btn:hover{
+    @include btnHover()
 }
 .comunications {
     position: absolute;
@@ -113,6 +139,7 @@ body {
     }
 }
 .emoji {
+    color: $color-orange;
     font-style: normal;
     position: absolute;
     right: 5px;
